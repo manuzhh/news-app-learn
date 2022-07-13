@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">News App Manu</string>
+    <string name="news_api_key">7fd4f983e0544c268559613569fa4954</string>
+    <string name="search">Search</string>
+</resources>
