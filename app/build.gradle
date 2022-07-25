@@ -13,7 +13,7 @@ android {
         dataBinding true
     }
     defaultConfig {
-        applicationId "com.mzlearn.newsapp"
+        applicationId "com.tallence.newsapp"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
