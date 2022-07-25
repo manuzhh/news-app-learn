@@ -83,8 +83,8 @@ class NewsOverviewFragment : Fragment() {
     }
 
     private fun setupBinding() {
-        viewModel.newsRepo.news.observe(viewLifecycleOwner, { articleList ->
-            articleList?.let{
+        viewModel.newsRepo.news.observe(viewLifecycleOwner) { articleList ->
+            articleList?.let {
                 viewModel.viewModelScope.launch {
                     val totalPages = viewModel.newsRepo.getCurrentTotalResults() / PAGE_SIZE + 2
                     isLastPage = viewModel.newsRepo.getCurrentPage() == totalPages
@@ -92,14 +92,15 @@ class NewsOverviewFragment : Fragment() {
                     isLoading = false
                 }
             }
-        })
+        }
 
-        viewModel.navigateToSelectedArticle.observe(viewLifecycleOwner, { article ->
-            if ( null != article ) {
-                this.findNavController().navigate(NewsOverviewFragmentDirections.actionShowDetail(article))
+        viewModel.navigateToSelectedArticle.observe(viewLifecycleOwner) { article ->
+            if (null != article) {
+                this.findNavController()
+                    .navigate(NewsOverviewFragmentDirections.actionShowDetail(article))
                 viewModel.displayArticleDetailsComplete()
             }
-        })
+        }
     }
 
     private fun initViews() {
